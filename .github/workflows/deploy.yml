@@ -27,9 +27,6 @@ jobs:
           npm ci
           npm run build
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          deploy_key: ${{ secrets.DEPLOY_KEY }}
+ssh-keygen -t rsa -b 4096 -C "$(git config user.email)" -f gh-pages -N ""
           publish_dir: ./dist
           force_orphan: true
